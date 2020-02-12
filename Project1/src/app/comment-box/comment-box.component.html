@@ -1,0 +1,114 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+  fxLayoutAlign.gt-md="space-around left" fxLayoutGap.xs="0">
+
+
+  <!----------------------------  reply on post UI ---------------------------------------->
+  <!-- <mat-card class='postexample-card' fxflex id="replyCommentBox">
+
+    <mat-card-header>Post Box</mat-card-header>
+
+    <mat-card-content class="half-width">
+      <img src="{{ profilePicture.path }}">
+
+      <div fxFlex fxFlexOffset="20px" class="form-size">
+        <p>
+          fgjkhjfhgjhfjgkjgjfkjkj
+        </p>
+
+
+
+      </div>
+
+    </mat-card-content>
+
+
+
+
+
+  </mat-card>
+
+
+
+ -->
+
+
+
+
+
+
+  <!---------Comment Box UI------------------------------------>
+  <mat-card class="example-card" fxFlex>
+    <p>{{commentForm.value|json}}</p>
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      <mat-card-title> Comments..</mat-card-title>
+    </mat-card-header>
+
+
+    <mat-list *ngIf='commentList'>
+
+      <mat-list-item *ngFor="let abc of commentList.comment">
+
+        <!-- <img src="{{ profilePicture.path }}"> -->
+        <p matLine>{{abc.comment}}</p><br>
+
+
+      </mat-list-item>
+
+    </mat-list>
+
+    <mat-list *ngIf='commentForm.valid'>
+
+      <mat-list-item>
+
+
+        <p matLine>{{commentForm.value.details}}</p><br>
+
+      </mat-list-item>
+
+    </mat-list>
+
+    <mat-card-content class=full-width>
+      <br>
+      <br>
+      <br>
+      <img src="{{ profilePicture.path }}">
+
+      <div fxFlex fxFlexOffset="20px" class="form-size">
+        <form novalidate [formGroup]="commentForm" #commentform="ngForm" (ngSubmit)="onSubmit();">
+          <p>
+            <mat-form-field class="full-width">
+              <textarea matInput formControlName="details" placeholder="type here....." rows="12" required></textarea>
+              <mat-error *ngIf="formErrors.details">{{ formErrors.details }}</mat-error>
+            </mat-form-field>
+          </p>
+
+
+          <mat-card-actions align="end">
+
+            <!-- <button mat-button class="toggle-giphy" (click)="toggleGiphySearch()">GIF</button> -->
+
+            <mat-icon>attachment</mat-icon>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-icon>add_a_photo</mat-icon>
+            <span class="flex-spacer"></span>
+            <button mat-button type="submit" class="background-primary text-floral-white"
+              [disabled]='commentForm.invalid'>
+              &nbsp; Add Comment</button>
+
+            <a mat-button type="cancel" class="background-primary text-floral-white" (click)="onSubmit()">Cancel</a>
+
+
+
+
+          </mat-card-actions>
+
+          <!-- <button type="submit" mat-button class="background-primary text-floral-white"
+                [disabled]="commentForm.invalid">Submit</button> -->
+
+        </form>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

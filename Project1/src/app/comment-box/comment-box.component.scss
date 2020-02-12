@@ -1,0 +1,107 @@
+// .full-width
+// {
+//     width:40%;
+// }
+// .half-width{
+//     width:50%;
+// }
+
+
+// // form
+// // { margin-top: 20px;
+// //  padding: 20px 20px 20px 100px;
+// //  background-color: #fff;
+// //  border-radius: 2px;
+// //  font-size: 0;
+// //  position: relative;
+// // }
+
+
+// input, textarea{
+//       padding: 10px 20px;
+//       background-color: rgba(#e5e5e5, .5) no-repeat;
+//       font-size: 14px;
+//       user-select: text;
+//       display: block;
+//       cursor: text;
+    
+//     }
+
+// // .form-size{
+// //     width:75%;
+// //   border-radius: 2px solid;
+// //   height:20%;
+// //   }
+  
+  
+// textarea{
+//   margin-top: 1px;
+//   padding: 20px;
+//   height: 120px;
+//   resize: none;
+//   left:40%;
+//   // width:100%;
+//   // user-select: none;
+//   // margin-left:40%;
+// }
+
+// img{
+//   width:100px;
+//   height:100px;
+//   background-color: rgba(#e5e5e5, .5);
+//   border: 4px solid rgba(#e5e5e5, .5);
+//   border-radius: 2px;
+//   position: absolute;
+//   top: 40px;
+//   left: 20px;
+
+// }
+// button{
+//   margin: 10px 10px 0 auto;
+//   padding: 3px 0px;
+//   background: rgb(90, 1, 90);
+//   color: white;
+//   font-size: 14px;
+//   display: inline;
+//   cursor: pointer;  
+//   border-radius:5px; 
+//   width:110px;
+//   height:40px;
+//   text-align: center;
+// // margin-top:0%;
+//   margin-right:2%;
+//   left:16%
+// }
+
+
+.half-width{
+  width:45%;
+}
+
+.full-width{
+  width: 95%;
+}
+
+.form-size{
+  width: 100%;
+}
+
+img{
+width: 100px;
+height:100px;
+top:50%;
+}
+
+.example-card {
+  max-width: 50%;
+}
+
+.postexample-card
+{
+  max-width:50%;
+  height: 50%;
+}
+// .example-header-image {
+//   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//   background-size: cover;
+// }
