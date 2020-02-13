@@ -23,6 +23,11 @@ export class CommentBoxComponent implements OnInit {
 
         "comment": "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
 
+      },
+      {
+
+        "comment": "Imagine all the eatables, living in conFusion!",
+
       }
     ]
   }
@@ -85,7 +90,7 @@ export class CommentBoxComponent implements OnInit {
 
   onSubmit() {
 
-    alert("into fun");
+    // alert("into fun");
     // this.commentList.comment.push(this.commentForm.value);
     this.commentForm.reset({
 
