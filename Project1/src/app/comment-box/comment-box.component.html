@@ -40,7 +40,7 @@
   <mat-card class="example-card" fxFlex>
     <!-- <p>{{commentForm.value|json}}</p> -->
     <mat-list *ngIf='commentList' style="display:inline-grid;padding-bottom: 30px;">
-      <mat-list-item *ngFor="let abc of commentList.comment" style="padding-bottom:45px;">
+      <mat-list-item *ngFor="let abc of commentList.comment" style="padding-bottom:60px;">
         <!-- <li ng-repeat="comment in commentList" style="display: inline-flex"> -->
         <img matListAvatar id="CommentProfilePic" src="{{ profilePicture.path }}">
         <div fxFlex fxFlexOffset="20px" class="form-size">
@@ -67,24 +67,127 @@
                 <mat-icon style="color:#512DA8">edit</mat-icon>
                 <span style="color:#512DA8">Edit</span>
               </button>
-              <button mat-menu-item align="center"> 
+              <button mat-menu-item align="center">
                 <mat-icon style="color:#512DA8">delete</mat-icon>
                 <span style="color:#512DA8">Delete</span>
               </button>
 
+              <!-- <dx-tree-view
+              id="simple-treeview"
+              [createChildren]="createChildren"
+              dataStructure="plain"
+              rootValue=""
+              [height]="500">
+          </dx-tree-view> -->
               <!-- <button mat-menu-item>
                 <mat-icon>notifications_off</mat-icon>
                 <span>Disable alerts</span>
               </button> -->
             </mat-menu>
           </div>
+          <a (click)="onViewAllComment()" style="color:#512DA8;font-size:small;text-decoration:none">View all Reply</a>
+
+
+
+          <mat-list *ngIf='showSubComment' [@expand]>
+            <mat-list-item *ngFor="let xyz of SubcommentList.subcomment" style="padding-bottom:60px;">
+              <!-- <li ng-repeat="comment in commentList" style="display: inline-flex"> -->
+              <img matListAvatar id="CommentProfilePic" src="{{ profilePicture.path }}">
+              <div fxFlex fxFlexOffset="20px" class="form-size">
+                <p matLine class="full-width" style="white-space:normal">{{xyz.subcomment}}</p>
+
+                <span class="flex-spacer"></span>
+                <div class="example-button-row">
+                  <button mat-stroked-button style="color:#512DA8">
+                    <mat-icon style="color:#512DA8">thumb_up_alt</mat-icon>&nbsp;Like
+                  </button>
+                  <button mat-stroked-button style="color:#512DA8">
+                    <mat-icon style="color:#512DA8">comment</mat-icon>&nbsp;Reply
+                  </button>
+
+                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon style="color:#512DA8">more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+
+                    <button mat-menu-item align="center">
+                      <mat-icon style="color:#512DA8">edit</mat-icon>
+                      <span style="color:#512DA8">Edit</span>
+                    </button>
+                    <button mat-menu-item align="center">
+                      <mat-icon style="color:#512DA8">delete</mat-icon>
+                      <span style="color:#512DA8">Delete</span>
+                    </button>
+
+
+                  </mat-menu>
+                </div>
+                <a routerLink="." style="color:#512DA8;font-size:small;text-decoration:none">View all Reply</a>
+
+              </div>
+            </mat-list-item>
+
+          </mat-list>
+
 
         </div>
+      </mat-list-item>
+    </mat-list>
 
-        <!-- </li> -->
+
+    <!-- <mat-list *ngIf='showSubComment' style="display:inline-grid;padding-bottom: 30px;" [@expand]>
+      <mat-list-item *ngFor="let xyz of SubcommentList.subcomment" style="padding-bottom:60px;">
+
+        <img matListAvatar id="CommentProfilePic" src="{{ profilePicture.path }}">
+        <div fxFlex fxFlexOffset="20px" class="form-size">
+          <p matLine class="full-width" style="white-space:normal">{{xyz.subcomment}}</p>
+
+          <span class="flex-spacer"></span>
+          <div class="example-button-row">
+            <button mat-stroked-button style="color:#512DA8">
+              <mat-icon style="color:#512DA8">thumb_up_alt</mat-icon>&nbsp;Like
+            </button>
+            <button mat-stroked-button style="color:#512DA8">
+              <mat-icon style="color:#512DA8">comment</mat-icon>&nbsp;Reply
+            </button>
+
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon style="color:#512DA8">more_horiz</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+
+              <button mat-menu-item align="center">
+                <mat-icon style="color:#512DA8">edit</mat-icon>
+                <span style="color:#512DA8">Edit</span>
+              </button>
+              <button mat-menu-item align="center">
+                <mat-icon style="color:#512DA8">delete</mat-icon>
+                <span style="color:#512DA8">Delete</span>
+              </button>
+
+            </mat-menu>
+          </div>
+          <a routerLink="." style="color:#512DA8;font-size:small;text-decoration:none">View all Reply</a>
+
+        </div>
       </mat-list-item>
 
-    </mat-list>
+    </mat-list> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <mat-card-header>
       <!-- <div mat-card-avatar class="example-header-image"></div> -->
@@ -120,8 +223,10 @@
             <mat-icon>add_a_photo</mat-icon>
             <span class="flex-spacer"></span>
             <button mat-button type="submit" class="background-primary text-floral-white"
-              [disabled]='commentForm.invalid'><mat-icon>send</mat-icon>
-              &nbsp; Add Comment</button>
+              [disabled]='commentForm.invalid'>
+              <mat-icon>send</mat-icon>
+              &nbsp; Add Comment
+            </button>
 
             <a mat-button type="cancel" class="background-primary text-floral-white" (click)="onSubmit()">Cancel</a>
           </mat-card-actions>
@@ -134,4 +239,6 @@
 
     </mat-card-content>
   </mat-card>
+
+
 </div>

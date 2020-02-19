@@ -2,16 +2,34 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comments } from './../shared/comment'
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { flyInOut, expand } from '../animations/animations';
+
+
 
 @Component({
   selector: 'app-comment-box',
   templateUrl: './comment-box.component.html',
-  styleUrls: ['./comment-box.component.scss']
+  styleUrls: ['./comment-box.component.scss'],
+  host: {
+    '[@flyInOut]': 'true',
+
+    'style': 'display:block;'
+
+  },
+  animations: [
+    flyInOut(),
+    expand()
+
+  ]
+
 })
 export class CommentBoxComponent implements OnInit {
 
   profilePicture = { path: 'assets/flower.jpg' }
   commentForm: FormGroup;
+  showSubComment = false;
   commentList = {
     "comment": [
       {
@@ -19,16 +37,36 @@ export class CommentBoxComponent implements OnInit {
         "comment": "Imagine all the eatables, living in conFusion!",
 
       },
+      // {
+
+      //   "comment": "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+
+      // }
+      // {
+
+      //   "comment": "Imagine all the eatables, living in conFusion!",
+
+      // }
+    ]
+  }
+
+  SubcommentList = {
+    "subcomment": [
       {
 
-        "comment": "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-
-      },
-      {
-
-        "comment": "Imagine all the eatables, living in conFusion!",
+        "subcomment": "Imagine all the eatables, living in conFusion! New subcomment",
 
       }
+      // {
+
+      //   "subcomment": "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+
+      // }
+      // {
+
+      //   "subcomment": "Imagine all the eatables, living in conFusion!",
+
+      // }
     ]
   }
 
@@ -46,6 +84,11 @@ export class CommentBoxComponent implements OnInit {
 
     }
   };
+
+
+
+
+
 
   constructor(public fb: FormBuilder) {
     this.createForm();
@@ -100,6 +143,18 @@ export class CommentBoxComponent implements OnInit {
     this.commentFormDirective.resetForm();
 
   }
+  onViewAllComment() {
+    if (this.showSubComment == false) {
+      this.showSubComment = true;
+    }
+    else if (this.showSubComment == true) {
+      this.showSubComment = false;
+    }
+
+
+  }
+
+
 
 }
 

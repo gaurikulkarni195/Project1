@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTreeModule } from '@angular/material/tree';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,7 +38,8 @@ import { CommentBoxComponent } from './comment-box/comment-box.component';
     MatIconModule,
     MatListModule,
     MatDividerModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTreeModule
 
   ],
   providers: [],
