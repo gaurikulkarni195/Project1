@@ -37,11 +37,11 @@ export class CommentBoxComponent implements OnInit {
         "comment": "Imagine all the eatables, living in conFusion!",
 
       },
-      // {
+      {
 
-      //   "comment": "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+        "comment": "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
 
-      // }
+      }
       // {
 
       //   "comment": "Imagine all the eatables, living in conFusion!",
@@ -56,17 +56,17 @@ export class CommentBoxComponent implements OnInit {
 
         "subcomment": "Imagine all the eatables, living in conFusion! New subcomment",
 
+      },
+      {
+
+        "subcomment": "subcomment!",
+
+      },
+      {
+
+        "subcomment": "subcpmment conFusion!",
+
       }
-      // {
-
-      //   "subcomment": "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-
-      // }
-      // {
-
-      //   "subcomment": "Imagine all the eatables, living in conFusion!",
-
-      // }
     ]
   }
 
