@@ -30,6 +30,7 @@ export class CommentBoxComponent implements OnInit {
   profilePicture = { path: 'assets/flower.jpg' }
   commentForm: FormGroup;
   showSubComment = false;
+
   commentList = {
     "comment": [
       {
@@ -153,9 +154,17 @@ export class CommentBoxComponent implements OnInit {
 
 
   }
+  showEmojis = false;
+  emojiList = ['like', 'love', 'wow', 'haha', 'sad', 'angry']
 
+  emojiPath(emoji) {
+    return `assets/reactionEmojis/${emoji}.svg`
+  }
 
+  toggleShow() {
+    this.showEmojis = !this.showEmojis
+  }
 
 }
 
-
+// 

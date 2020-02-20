@@ -51,10 +51,21 @@
           <a mat-button type="cancel" class="background-primary text-floral-white" (click)="onSubmit()">Comment</a>&nbsp;&nbsp;
           <a mat-button type="cancel" class="background-primary text-floral-white" (click)="onSubmit()">Share</a>&nbsp;&nbsp; -->
           <span class="flex-spacer"></span>
-          <div class="example-button-row">
-            <button mat-stroked-button style="color:#512DA8">
+
+          <div class="example-button-row" (mouseleave)="toggleShow(false)">
+            <div id="emojiDiv" class="emojis" *ngIf="showEmojis">
+
+              <span class="wrapper"  *ngFor="let emoji of emojiList; index as i;">
+                <img [src]="emojiPath(emoji)" width='75px'>
+              </span>
+
+            </div>
+
+            <button mat-stroked-button style="color:#512DA8" (mouseenter)="toggleShow(true)" (mouseup)="toggleShow(true)">
               <mat-icon style="color:#512DA8">thumb_up_alt</mat-icon>&nbsp;Like
             </button>
+
+
             <button mat-stroked-button style="color:#512DA8">
               <mat-icon style="color:#512DA8">comment</mat-icon>&nbsp;Reply
             </button>
@@ -94,9 +105,9 @@
               <img matListAvatar id="CommentProfilePic" src="{{ profilePicture.path }}">
               <div fxFlex fxFlexOffset="20px" class="form-size">
                 <p matLine class="full-width" style="white-space:normal">{{xyz.subcomment}}</p>
-
                 <span class="flex-spacer"></span>
                 <div class="example-button-row">
+
                   <button mat-stroked-button style="color:#512DA8">
                     <mat-icon style="color:#512DA8">thumb_up_alt</mat-icon>&nbsp;Like
                   </button>
@@ -133,58 +144,18 @@
       </mat-list-item>
     </mat-list>
 
-
-    <!-- <mat-list *ngIf='showSubComment' style="display:inline-grid;padding-bottom: 30px;" [@expand]>
-      <mat-list-item *ngFor="let xyz of SubcommentList.subcomment" style="padding-bottom:60px;">
-
-        <img matListAvatar id="CommentProfilePic" src="{{ profilePicture.path }}">
-        <div fxFlex fxFlexOffset="20px" class="form-size">
-          <p matLine class="full-width" style="white-space:normal">{{xyz.subcomment}}</p>
-
-          <span class="flex-spacer"></span>
-          <div class="example-button-row">
-            <button mat-stroked-button style="color:#512DA8">
-              <mat-icon style="color:#512DA8">thumb_up_alt</mat-icon>&nbsp;Like
-            </button>
-            <button mat-stroked-button style="color:#512DA8">
-              <mat-icon style="color:#512DA8">comment</mat-icon>&nbsp;Reply
-            </button>
-
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <mat-icon style="color:#512DA8">more_horiz</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-
-              <button mat-menu-item align="center">
-                <mat-icon style="color:#512DA8">edit</mat-icon>
-                <span style="color:#512DA8">Edit</span>
-              </button>
-              <button mat-menu-item align="center">
-                <mat-icon style="color:#512DA8">delete</mat-icon>
-                <span style="color:#512DA8">Delete</span>
-              </button>
-
-            </mat-menu>
-          </div>
-          <a routerLink="." style="color:#512DA8;font-size:small;text-decoration:none">View all Reply</a>
-
+    <!-- <div id="emojiDiv" class="wrapper" (mouseenter)="toggleShow(true)" (mouseleave)="toggleShow(false)" style="display: none">
+        <div class="emojis" *ngIf="showEmojis">
+  
+          <span *ngFor="let emoji of emojiList; index as i;">
+            <img [src]="emojiPath(emoji)" width='75px'>
+          </span>
+  
         </div>
-      </mat-list-item>
-
-    </mat-list> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <span class="like">
+          Like
+      </span>
+      </div> -->
 
 
 
